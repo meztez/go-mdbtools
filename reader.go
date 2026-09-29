@@ -1,8 +1,8 @@
 package mdbtools
 
 /*
-#cgo CFLAGS: -I${SRCDIR}/native/mdbtools/include
-#cgo LDFLAGS: ${SRCDIR}/native/mdbtools/src/libmdb/.libs/libmdb.a -lm
+#cgo linux CFLAGS: -I${SRCDIR}/third_party/mdbtools/include -D_GNU_SOURCE -DHAVE_ICONV=1 -DHAVE_FMEMOPEN=1 -DHAVE_VASPRINTF=1 -DHAVE_GMTIME_R=1 -DHAVE_DECL_PROGRAM_INVOCATION_SHORT_NAME=1 -DHAVE_ATTRIBUTE_ALIAS=1 -DTLS=__thread -DICONV_CONST=
+#cgo linux LDFLAGS: -lm
 #include "bridge.h"
 */
 import "C"

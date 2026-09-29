@@ -9,22 +9,20 @@ resolve linked tables.
 
 ## Build
 
-The official MDB Tools 1.0.1 source archive is bundled under `third_party/`
-and verified by SHA-256 before it is built. A C compiler, `make`, `tar`, and
-the tools used by `configure` are required. Go must be built with cgo enabled.
-No system `mdbtools-devel` installation is needed.
+Install it like a normal Go module:
 
 ```sh
-sh scripts/build-native.sh
-go test ./...
+go get github.com/meztez/go-mdbtools
+go build ./...
 ```
 
-The script builds a static `libmdb.a` in the ignored `native/` directory. Go
-module consumers must run it in a writable checkout (or use a prebuilt copy of
-the package); `go get` alone cannot execute native build scripts. Linux x86-64
-has been tested. macOS and Windows/MSYS2 builds have not been verified yet.
-Static linking has LGPL redistribution obligations: review MDB Tools'
-`COPYING.LIB` inside the bundled source before distributing an application.
+MDB Tools 1.0.1 C sources are included under `third_party/mdbtools/` and built
+by cgo automatically. **Linux with a working C compiler and `CGO_ENABLED=1`**
+is supported; no separate MDB Tools installation, `make`, or build script is
+required. macOS and Windows builds have not been verified and may require
+platform-specific configuration. Static linking has LGPL redistribution
+obligations: review `third_party/mdbtools/COPYING.LIB` before distributing an
+application.
 
 ## API
 
